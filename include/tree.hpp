@@ -133,7 +133,7 @@ public:
 	{
 		node_t * ptr_1 = this->root;
 		node_t * ptr_2 = root;
-		return help_op (stream, ptr_1, ptr_2);
+		return help_op (fread, ptr_1, ptr_2);
 
 	}
 
@@ -145,7 +145,7 @@ public:
 			if (!help_op(stream, ptr_1->left, ptr_2->left) || !help_op(stream, ptr_1->right, ptr_2->right)) return false;
 			else return true;
 		}
-		else if (ptr_1 == ptr_2 == NULL) return true;
+		else if ((ptr_1 == NULL) && (ptr_2 == NULL)) return true;
 		else return false;
 	}
 
