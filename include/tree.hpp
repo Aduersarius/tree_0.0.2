@@ -136,8 +136,9 @@ public:
 			}
 		}
 
-	bool operator==(ostream & stream , tree_t & other)
+	bool operator==(tree_t & other)
 	{
+		istringstream stream(other);
 		node_t * ptr_1 = this->root;
 		node_t * ptr_2 = root;
 		return help_op(stream, ptr_1, ptr_2);
