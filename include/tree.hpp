@@ -15,7 +15,13 @@ class tree_t
 	node_t * root = NULL;
 
 public:
-
+        tree_t() {
+		root = NULL;
+	}
+	
+	~tree_t() {
+		delete root;
+	}
 	void insert(T value) {
 		node_t * add = new node_t;
 		add->value = value;
