@@ -139,7 +139,7 @@ public:
 	{
 		node_t * ptr_1 = this->root;
 		node_t * ptr_2 = root;
-		return help_op(fread, ptr_1, ptr_2);
+		return help_op(stream, ptr_1, ptr_2);
 
 	}
 
