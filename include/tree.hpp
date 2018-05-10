@@ -143,7 +143,7 @@ public:
 
 	}
 
-	bool help_op (ostream & stream, node_t * ptr_1, node_t * ptr_2)
+	bool help_op (ostream & stream, node_t * ptr_1, node_t * ptr_2) const
 	{
 		if (ptr_1 && ptr_2) {
 			if (ptr_1->value != ptr_2->value) return false;
