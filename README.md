@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Aduersarius/matrix_example.svg?branch=master)](https://travis-ci.org/Aduersarius/matrix_example)
+[![Build Status](https://travis-ci.org/Aduersarius/tree_0.0.2.svg?branch=master)](hhttps://travis-ci.org/Aduersarius/tree_0.0.2)
 
 ```
 cmake -H. -B_builds -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON
