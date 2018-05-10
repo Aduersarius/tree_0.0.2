@@ -1,3 +1,5 @@
+#include "tree.hpp"
+using namespace std;
 int main()
 {
 	char op; int a;
