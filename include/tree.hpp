@@ -135,7 +135,7 @@ public:
 			}
 		}
 
-	bool operator==(tree_t const & other) const
+	bool operator==(tree_t & other) const
 	{
 		node_t * ptr_1 = this->root;
 		node_t * ptr_2 = root;
