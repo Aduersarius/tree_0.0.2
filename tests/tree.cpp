@@ -13,7 +13,7 @@ TEST_CASE("insert,print and remove")
     tree.remove(10);
     cout << tree.find(10)<<'\n';
     tree.help_print(ostream);
-    REQUIRE(input+input1==ostream.str());
+    REQUIRE(tree+input1==ostream.str());
    
 }
 TEST_CASE("compare"){
