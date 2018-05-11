@@ -136,21 +136,18 @@ public:
 			}
 		}
 
-	bool operator==(tree_t & other)
+	auto operator==(tree_t const & other) const
 	{
-		istringstream stream(other);
-		node_t * ptr_1 = this->root;
-		node_t * ptr_2 = root;
-		return help_op(stream, ptr_1, ptr_2);
+		return help_op( root, other.root);
 
 	}
 
-	bool help_op (ostream & stream, node_t * ptr_1, node_t * ptr_2) const
+	bool help_op ( node_t * ptr_1, node_t * ptr_2) const
 	{
 		if (ptr_1 && ptr_2) {
 			if (ptr_1->value != ptr_2->value) return false;
 			else return true;
-			if (!help_op(stream, ptr_1->left, ptr_2->left) || !help_op(stream, ptr_1->right, ptr_2->right)) return false;
+			if (!help_op(ptr_1->left, ptr_2->left) || !help_op( ptr_1->right, ptr_2->right)) return false;
 			else return true;
 		}
 		else if ((ptr_1 == NULL) && (ptr_2 == NULL)) return true;
