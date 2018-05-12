@@ -9,9 +9,9 @@ TEST_CASE("insert,print and remove")
     std::ostringstream ostream;
     tree_t<int> tree{10,4,16,2,13,18,3,17};
     tree.help_print(ostream);
-    cout << "removing 10:";
-    tree.remove(10);
-    cout << tree.find(10)<<'\n';
+    cout << "removing 10: ";
+    if (tree.remove(10)) cout << "removed" << endl;
+    else cout << "not removed" << endl;
     tree.help_print(ostream);
     REQUIRE(input+input1==ostream.str());
    
