@@ -6,14 +6,14 @@ using namespace std;
 TEST_CASE("insert,print and remove")
 {   string input{"------------18\n----------------17\n--------16\n------------13\n----10\n--------4\n----------------3\n------------2\n"};
     string input1{"------------18\n----------------17\n--------16\n----13\n--------4\n----------------3\n------------2\n"};
-    std::ostringstream ostream;
+    ostringstream ostream;
     tree_t<int> tree{10,4,16,2,13,18,3,17};
-    tree.help_print(cout);
-    cout << "removing 10: ";
+    tree.help_print(ostream);
+   // cout << "removing 10: ";
     tree.remove(10);
-    if (tree.find(10)) cout << "removed" << endl;
-    else cout << "not removed" << endl;
-    tree.help_print(cout);
+    //if (tree.find(10)) cout << "not removed" << endl;
+   // else cout << "removed" << endl;
+    tree.help_print(ostream);
     REQUIRE(input+input1==ostream.str());
    
 }
@@ -24,7 +24,7 @@ TEST_CASE("compare"){
     tree_t<int> tree1{10,4,16,2,13,18,3,17};
     ostream<<(tree==tree1?"equal\n":"not equal\n");
     tree1.insert(8);
-    tree1.insert(9);
+    tree.insert(9);
     tree1.insert(15);
     ostream<<(tree==tree1?"equal\n":"not equal\n");
     ostream<<(tree.find(13)? "found succesfully\n":"not found\n");
