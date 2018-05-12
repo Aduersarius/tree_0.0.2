@@ -75,7 +75,7 @@ public:
 		return a;
 	}
 
-	void remove(T value)
+	bool remove(T value)
 		{
 			node_t * pointer = root;
 			node_t * parent = NULL;
@@ -134,6 +134,8 @@ public:
 				}
 				delete removed;
 			}
+		if (find(value)) return false;
+		else return true;
 		}
 
 	auto operator==(tree_t const & other) const
