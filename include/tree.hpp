@@ -11,6 +11,16 @@ class tree_t
 		node_t * left;
 		node_t * right;
 		T value;
+		
+		void help_print(ostream & stream, int u) {
+			{
+				u++;
+				if (right) right->help_print(stream, u);
+				for (int i = 0; i < u; i++) stream << "----";
+				stream << value << endl;
+				if (left) left->help_print(stream, u);
+			}
+		}
 	};
 
 	node_t * root = NULL;
@@ -156,19 +166,7 @@ public:
 		else return false;
 	}
 
-	void help_print(node_t * s, int u) {
-		if (!s) return;
-		else
-		{
-			u++;
-			help_print( s->right, u);
-			for (int i = 0; i < u; i++) cout << "----";
-			cout << s->value << endl;
-			help_print(s->left, u);
-		}
-	}
-
-	void print() {
-		help_print(root, 0);
+	void print(ostream & stream) {
+		root->help_print(stream, 0);
 	}
 };
