@@ -162,7 +162,7 @@ public:
 	bool help_op ( node_t * ptr_1, node_t * ptr_2) const
 	{
 		if (ptr_1 && ptr_2) {
-			if (ptr_1->value = ptr_2->value && help_op(ptr_1->left, ptr_2->left) && help_op( ptr_1->right, ptr_2->right)) return true;
+			if (ptr_1->value == ptr_2->value && help_op(ptr_1->left, ptr_2->left) && help_op( ptr_1->right, ptr_2->right)) return true;
 			else return false;
 		}
 		else if ((ptr_1 == NULL) && (ptr_2 == NULL)) return true;
