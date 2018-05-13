@@ -156,24 +156,19 @@ public:
 		else return false;
 	}
 
-	void print(ostream & stream, node_t *f, int u) const
-	{
-		for (int i = 0; i < u; i++) stream << "----";
-		stream << f->value << endl;
-	}
-
-	void help_print(ostream & stream, node_t * s, int u) {
+	void help_print(node_t * s, int u) {
 		if (!s) return;
 		else
 		{
 			u++;
-			help_print(stream, s->right, u);
-			print(cout, s, u);
-			help_print(stream, s->left, u);
+			help_print( s->right, u);
+			for (int i = 0; i < u; i++) cout << "----";
+			cout << s->value << endl;
+			help_print(s->left, u);
 		}
 	}
 
-	void help_print(ostream & stream) {
-		help_print(stream, root, 0);
+	void print() {
+		help_print(root, 0);
 	}
 };
