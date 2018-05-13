@@ -11,7 +11,7 @@ int main()
 		case '+':
 			cin >> a;
 			tree.insert(a);
-			tree.print();
+			tree.print(cout);
 			break;
 		case '?':
 			cin >> a;
@@ -20,10 +20,10 @@ int main()
 		case '-':
 			cin >> a;
 			tree.remove(a);
-			tree.print();
+			tree.print(cout);
 			break;
 		case '=':
-			tree.print();
+			tree.print(cout);
 		}
 		cin >> op;
 	}
