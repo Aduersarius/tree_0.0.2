@@ -79,7 +79,8 @@ TEST_CASE(" compare trees ")
     tree2.insert(3);
     tree2.insert(43);
     REQUIRE((tree1==tree2)==true);
-    tree1.insert(0);
+    tree1.insert(1);
+    tree2.insert(2);
     REQUIRE((tree1==tree2)==false);
 }
 
