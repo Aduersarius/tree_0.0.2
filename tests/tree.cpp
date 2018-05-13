@@ -53,7 +53,7 @@ TEST_CASE(" print ")
         "--------5.4\n"
         "----2.3\n" };
     ostringstream ostream;
-    tree.print();
+    tree.print(ostream);
     REQUIRE(ostream.str()==wait);
     tree.insert(1.2);
     string wait2 {
@@ -62,7 +62,7 @@ TEST_CASE(" print ")
         "----2.3\n"
         "--------1.2\n" };
     ostream.str("");
-    tree.print();
+    tree.print(ostream);
     REQUIRE(ostream.str() == wait2);
 }
 
@@ -93,6 +93,6 @@ TEST_CASE(" initializer_list ")
         "--------2\n"
         "----0\n"     };
     ostringstream ostream;
-    tree.print();
+    tree.print(ostream);
     REQUIRE(ostream.str()==srav);
 }
