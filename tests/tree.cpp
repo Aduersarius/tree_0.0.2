@@ -1,32 +1,98 @@
 #include <catch.hpp>
 #include <sstream>
-
 #include "tree.hpp"
 
-TEST_CASE("insert,print and remove")
-{   std::string input{"------------18\n----------------17\n--------16\n------------13\n----10\n--------4\n----------------3\n------------2\n"};
-std::string input1{"------------18\n----------------17\n--------16\n----13\n--------4\n----------------3\n------------2\n"};
-     std::ostringstream ostream;
-    tree_t<int> tree{10,4,16,2,13,18,3,17};
+
+
+TEST_CASE(" insert and print ")
+{
+    tree_t<float> tree;
+    tree.insert(2.3);
+    tree.insert(5.4);
+    tree.insert(6.8);
+    string wait {
+        "------------6.8\n"
+        "--------5.4\n"
+        "----2.3\n" };
+    ostringstream ostream;
     tree.help_print(ostream);
-    std::cout<<"removing 10:"<<(tree.remove(10)? "removed":"not removed")<<'\n';
-    tree.help_print(ostream);
-    REQUIRE(input+input1==ostream.str());
-   
+    REQUIRE(ostream.str()==wait);
 }
-TEST_CASE("compare"){
+
+TEST_CASE(" find in tree ")
+{
+    tree_t<int> tree;
+    tree.insert(3);
+    tree.insert(5);
+    tree.insert(4);
+    REQUIRE(tree.find(5)==true);
+    REQUIRE(tree.find(3)==true);
+    REQUIRE(tree.find(15)==false);
+}
+
+TEST_CASE(" remove elements in tree ")
+{
+    tree_t<int> tree;
+    tree.insert(3);
+    tree.insert(5);
+    tree.insert(4);
+    tree.insert(43);
+    REQUIRE(tree.remove(5)==true);
+    REQUIRE(tree.find(2)==false);
+}
 
 
+TEST_CASE(" print ")
+{
+    tree_t<float> tree;
+    tree.insert(2.3);
+    tree.insert(5.4);
+    tree.insert(6.8);
+    string wait {
+        "------------6.8\n"
+        "--------5.4\n"
+        "----2.3\n" };
+    ostringstream ostream;
+    tree.help_print(ostream);
+    REQUIRE(ostream.str()==wait);
+    tree.insert(1.2);
+    string wait2 {
+        "------------6.8\n"
+        "--------5.4\n"
+        "----2.3\n"
+        "--------1.2\n" };
+    ostream.str("");
+    tree.help_print(ostream);
+    REQUIRE(ostream.str() == wait2);
+}
 
-    std::ostringstream ostream;
-    tree_t<int> tree{10,4,16,2,13,18,3,17};
-    tree_t<int> tree1{10,4,16,2,13,18,3,17};
-    ostream<<(tree==tree1?"equal\n":"not equal\n");
-    tree1.insert(8);
-    tree1.insert(9);
-    tree1.insert(15);
-    ostream<<(tree==tree1?"equal\n":"not equal\n");
-    ostream<<(tree.find(13)? "found succesfully\n":"not found\n");
-    REQUIRE("equal\nnot equal\nfound succesfully\n"==ostream.str());
+TEST_CASE(" compare trees ")
+{
+    tree_t<int> tree1;
+    tree1.insert(4);
+    tree1.insert(5);
+    tree1.insert(3);
+    tree1.insert(43);
+    tree_t<int> tree2 ;
+    tree2.insert(4);
+    tree2.insert(5);
+    tree2.insert(3);
+    tree2.insert(43);
+    REQUIRE((tree1==tree2)==true);
+    tree1.insert(0);
+    REQUIRE((tree1==tree2)==false);
+}
 
+TEST_CASE(" initializer_list ")
+{
+    tree_t<int> tree {0,2,4,6,123} ;
+    string srav {
+        "--------------------123\n"
+        "----------------6\n"
+        "------------4\n"
+        "--------2\n"
+        "----0\n"     };
+    ostringstream ostream;
+    tree.help_print(ostream);
+    REQUIRE(ostream.str()==srav);
 }
