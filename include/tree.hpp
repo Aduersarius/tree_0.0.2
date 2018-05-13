@@ -150,9 +150,14 @@ public:
 
 	auto operator==(tree_t const & other) const
 	{
-		return help_op( root, other.root);
+		return help_op( root, other.get_root());
 
 	}
+	
+	node_t* get_root() const 
+       {
+        return root;
+       }
 
 	bool help_op ( node_t * ptr_1, node_t * ptr_2) const
 	{
