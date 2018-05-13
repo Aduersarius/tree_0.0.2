@@ -86,7 +86,7 @@ TEST_CASE(" initializer_list ")
 {
     tree_t<int> tree {1,2,4,7,12} ;
     string str {
-        "--------------------12\n----------------7\n------------4\n--------2\n"----1\n"     };
+        "--------------------12\n----------------7\n------------4\n--------2\n----1\n"     };
     ostringstream ostream;
     tree.print(ostream);
     REQUIRE(ostream.str()==str);
