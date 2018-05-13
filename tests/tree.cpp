@@ -15,8 +15,7 @@ TEST_CASE(" insert and print ")
         "--------5.4\n"
         "----2.3\n" };
     ostringstream ostream;
-    tree.print();
-    REQUIRE(ostream.str()==wait);
+    REQUIRE(tree.print()==wait);
 }
 
 TEST_CASE(" find in tree ")
