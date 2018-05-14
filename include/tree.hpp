@@ -138,9 +138,9 @@ public:
 					removed = mostLeft;
 
 					if (mostLeftParent->left == mostLeft)
-						mostLeftParent->left = NULL;
+						mostLeftParent->left = mostLeft->right;
 					else
-						mostLeftParent->right = NULL;
+						mostLeftParent->right = mostLeft->right;
 				}
 				delete removed;
 			}
